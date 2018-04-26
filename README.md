@@ -35,9 +35,18 @@ https://api.github.com/search/repositories?q=topic:android&sort=stars&order=desc
 ```
 #### What kind of information should be shown in a single repository item?
 Use [Github Trending Website](https://github.com/trending) as reference:
-* name or full name
+* image of the owner
+* full name (includes owner name)
 * description
-* language
 * \# of stargazers
 * \# of forks
-* image/name of the owner
+
+The Language property is left out as Android repositories are either Java or Kotlin.
+#### How to present the repository items?
+The first question that arises is how to present the items on the screen next to each other. Following Design Guidelines we have three main representations:
+* Grid lists
+* Cards
+* List
+
+The collection of repositories that needs to be visualized is a homogeneous data type thus the [list representation](https://material.io/guidelines/components/lists.html) is chosen.
+To visualize the contents of the repository tile/item a two line list with avatar is chosen.
