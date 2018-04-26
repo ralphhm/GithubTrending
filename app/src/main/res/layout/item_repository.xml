@@ -60,7 +60,7 @@
         tools:text="Repository name" />
 
     <TextView
-        android:id="@+id/owner_name"
+        android:id="@+id/repo_description"
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -69,6 +69,6 @@
         app:layout_constraintEnd_toStartOf="@id/forks"
         app:layout_constraintStart_toEndOf="@id/text_start_padding"
         app:layout_constraintTop_toBottomOf="@id/repo_name"
-        tools:text="Second Line" />
+        tools:text="Description" />
 
 </android.support.constraint.ConstraintLayout>
