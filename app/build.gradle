@@ -30,7 +30,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
-                    'proguard-fresco.pro'
+                    'proguard-fresco.pro',
+                    'proguard-retrofit.pro'
         }
     }
 }
@@ -47,6 +48,7 @@ dependencies {
     implementation "com.xwray:groupie:$groupie_version"
     implementation "com.xwray:groupie-kotlin-android-extensions:$groupie_version"
     implementation 'com.facebook.fresco:fresco:1.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
