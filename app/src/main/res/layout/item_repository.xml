@@ -9,7 +9,7 @@
     android:paddingStart="?listPreferredItemPaddingLeft"
     android:paddingTop="16dp">
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/owner_image"
         android:layout_width="40dp"
         android:layout_height="40dp"

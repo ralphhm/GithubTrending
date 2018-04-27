@@ -15,7 +15,7 @@ class RepoListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         GroupAdapter<ViewHolder>().apply {
             Section().apply {
-                add(RepositoryItem("name", "description", 12345, 23))
+                add(RepositoryItem("https://avatars2.githubusercontent.com/u/1833474?v=4", "name", "description", 12345, 23))
             }.let {
                 add(it)
             }

@@ -5,6 +5,7 @@ The main screen which is the entry point of the app is a list repositories. It a
 ### Dependencies
 * Kotlin
 * Retrofit 2
+* Fresco
 ### Questions
 #### How is trending Github repositories defined?
 Use [Github Trending Website](https://github.com/trending) as reference:
