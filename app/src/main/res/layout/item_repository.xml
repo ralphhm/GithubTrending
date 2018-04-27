@@ -5,16 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="72dp"
-    android:paddingEnd="?listPreferredItemPaddingRight"
-    android:paddingStart="?listPreferredItemPaddingLeft"
     android:paddingTop="16dp">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/item_start_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="?listPreferredItemPaddingLeft" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/item_end_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="?listPreferredItemPaddingRight" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/owner_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/item_start_padding"
         tools:src="@tools:sample/avatars"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +37,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_star_black_16dp"
         android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/item_end_padding"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="32000" />
 
@@ -36,7 +48,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_split_black_16dp"
         android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/item_end_padding"
         app:layout_constraintTop_toBottomOf="@id/stargazers"
         tools:text="20" />
 
