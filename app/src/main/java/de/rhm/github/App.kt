@@ -1,29 +1,29 @@
 package de.rhm.github
 
+import DaggerAppComponent
+import android.app.Activity
 import android.app.Application
 import android.support.v7.app.AppCompatDelegate
 import com.facebook.drawee.backends.pipeline.Fresco
-import de.rhm.github.api.GitHubService
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.Retrofit
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
+class App : Application(), HasActivityInjector {
 
-
-class App: Application() {
-
-    lateinit var apiService: GitHubService
-    companion object {
-        lateinit var instance: App
-    }
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
+        DaggerAppComponent
+                .builder()
+                .application(this)
+                .build()
+                .inject(this)
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         Fresco.initialize(this)
-        apiService = Retrofit.Builder()
-                .baseUrl("https://api.github.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(GitHubService::class.java)
     }
+
+    override fun activityInjector() = dispatchingAndroidInjector
 }
