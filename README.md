@@ -3,9 +3,13 @@
 This is a sample app that shows trending Android repositories on Github.
 The main screen which is the entry point of the app is a list repositories. It acts as master view where the user can click on a repository item and gets navigated to a detail view.
 ### Dependencies
-* Kotlin
-* Retrofit 2
-* Fresco
+* [Kotlin](https://developer.android.com/kotlin)
+* [Retrofit 2](http://square.github.io/retrofit)
+* [Fresco](http://frescolib.org)
+* [RxJava 2](https://github.com/ReactiveX/RxJava)
+* [Groupie](https://github.com/lisawray/groupie)
+* [Dagger 2](https://google.github.io/dagger/)
+* [Android architecture ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 ### Questions
 #### How is trending Github repositories defined?
 Use [Github Trending Website](https://github.com/trending) as reference:
