@@ -1,7 +1,6 @@
 package de.rhm.github
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -28,9 +27,9 @@ class RepoListActivity : AppCompatActivity() {
     }
 
     private fun updateUi(model: RepoListUiModel) = when (model) {
-        Loading -> Snackbar.make(content, "Loading", Snackbar.LENGTH_LONG).show()
+        Loading -> section.update(listOf(LoadingItem))
         is Success -> section.update(model.repoList)
-        is Failure -> Snackbar.make(content, model.message, Snackbar.LENGTH_LONG).show()
+        is Failure -> section.update(listOf(ErrorItem(getString(R.string.error_loading_repos, model.cause))))
     }
 
     override fun onDestroy() {
