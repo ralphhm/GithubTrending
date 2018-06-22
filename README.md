@@ -8,7 +8,7 @@ The main screen which is the entry point of the app is a list repositories. It a
 * [Fresco](http://frescolib.org)
 * [RxJava 2](https://github.com/ReactiveX/RxJava)
 * [Groupie](https://github.com/lisawray/groupie)
-* [Dagger 2](https://google.github.io/dagger/)
+* [Koin](https://insert-koin.io/) lightweight Kotlin dependency injection framework that allows simple ViewHolder injection and without code generation
 * [Android architecture ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 ### Questions
 #### How is trending Github repositories defined?

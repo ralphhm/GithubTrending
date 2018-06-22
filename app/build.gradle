@@ -1,8 +1,8 @@
 ext {
+    support_version = '27.1.1'
     retrofit_version = "2.4.0"
     groupie_version = "2.0.3"
-    dagger_version = "2.14.1"
-    arch_version = "1.1.1"
+    koin_version = '0.9.2'
 }
 
 apply plugin: 'com.android.application'
@@ -38,15 +38,15 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.1'
+
+    //Support
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:design:$support_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.android.support:design:27.1.1'
 
     //RxJava
-    implementation "io.reactivex.rxjava2:rxjava:2.1.13"
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
 
     //Retrofit
@@ -61,15 +61,10 @@ dependencies {
     //Fresco
     implementation 'com.facebook.fresco:fresco:1.9.0'
 
-    //Dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-
-    //ViewModel
-    implementation "android.arch.lifecycle:extensions:$arch_version"
-    kapt "android.arch.lifecycle:compiler:$arch_version"
+    //Koin
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-architecture:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

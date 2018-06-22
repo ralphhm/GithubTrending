@@ -3,11 +3,10 @@ package de.rhm.github
 import android.arch.lifecycle.ViewModel
 import de.rhm.github.api.GithubService
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.Scheduler
 import io.reactivex.subjects.PublishSubject
-import javax.inject.Inject
 
-class RepoListViewModel @Inject constructor(apiService: GithubService) : ViewModel() {
+class RepoListViewModel(apiService: GithubService, scheduler: Scheduler) : ViewModel() {
     private val publishSubject = PublishSubject.create<FetchRepoListAction>()
     val uiState: Observable<out RepoListUiModel> = publishSubject
             .startWith(FetchRepoListAction)
@@ -19,7 +18,7 @@ class RepoListViewModel @Inject constructor(apiService: GithubService) : ViewMod
             }
             .replay(1)
             .autoConnect()
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(scheduler)
 
 }
 
