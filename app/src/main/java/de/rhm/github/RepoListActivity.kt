@@ -28,8 +28,8 @@ class RepoListActivity : AppCompatActivity() {
 
     private fun updateUi(model: RepoListUiModel) = when (model) {
         Loading -> section.update(listOf(LoadingItem))
-        is Success -> section.update(model.repoList)
-        is Failure -> section.update(listOf(ErrorItem(getString(R.string.error_loading_repos, model.cause))))
+        is Success -> section.update(model.repoList.map { RepositoryItem(it.owner.avatarUrl, it.fullName, it.description, it.stars, it.forkCount) })
+        is Failure -> section.update(listOf(ErrorItem(getString(R.string.error_loading_repos, model.cause), model.retryAction)))
     }
 
     override fun onDestroy() {

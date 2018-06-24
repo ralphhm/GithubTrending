@@ -12,9 +12,9 @@ class RepoListViewModel(apiService: GithubService, scheduler: Scheduler) : ViewM
             .startWith(FetchRepoListAction)
             .switchMap {
                 apiService.getTrendingAndroidRepositories().toObservable()
-                        .map<RepoListUiModel> { RepoListUiModel.Success(it.repositories.map { RepositoryItem(it.owner.avatarUrl, it.fullName, it.description, it.stars, it.forkCount) }) }
+                        .map<RepoListUiModel> { RepoListUiModel.Success(it.repositories) }
                         .startWith(RepoListUiModel.Loading)
-                        .onErrorReturn { RepoListUiModel.Failure(it.localizedMessage) }
+                        .onErrorReturn { RepoListUiModel.Failure(it.localizedMessage) { publishSubject.onNext(FetchRepoListAction) } }
             }
             .replay(1)
             .autoConnect()
