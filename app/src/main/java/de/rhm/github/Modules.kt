@@ -1,6 +1,7 @@
 package de.rhm.github
 
 import de.rhm.github.api.GithubService
+import de.rhm.github.repo.SelectedRepo
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.architecture.ext.viewModel
@@ -21,6 +22,8 @@ val AppModule = applicationContext {
                 .build().create(GithubService::class.java)
     }
 
-    viewModel { RepoListViewModel(get(), get())}
+    viewModel { RepoListViewModel(get(), get()) }
+
+    bean { SelectedRepo() }
 
 }

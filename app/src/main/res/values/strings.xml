@@ -3,4 +3,5 @@
     <string name="loading_repos">Loading trending repositories …</string>
     <string name="error_loading_repos">There was an error loading trending repositories:\n%s</string>
     <string name="retry">Retry</string>
+    <string name="title_activity_repo_details">RepoDetailsActivity</string>
 </resources>
