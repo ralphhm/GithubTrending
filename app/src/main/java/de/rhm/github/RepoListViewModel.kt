@@ -17,7 +17,7 @@ class RepoListViewModel(apiService: GithubService, scheduler: Scheduler) : ViewM
                         .onErrorReturn { RepoListUiModel.Failure(it.localizedMessage) { publishSubject.onNext(FetchRepoListAction) } }
             }
             .replay(1)
-            .autoConnect()
+            .autoConnect(0)
             .observeOn(scheduler)
 
 }
