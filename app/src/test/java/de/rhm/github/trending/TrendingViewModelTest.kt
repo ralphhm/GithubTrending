@@ -11,9 +11,9 @@ import org.hamcrest.CoreMatchers.instanceOf
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 
-class RepoListViewModelTest {
+class TrendingViewModelTest {
 
-    val observer = TestObserver.create<RepoListUiModel>()
+    val observer = TestObserver.create<TrendingUiModel>()
     val scheduler = Schedulers.trampoline()
 
     @Test
@@ -21,8 +21,8 @@ class RepoListViewModelTest {
         val service = mock<GithubService> {
             on { getTrendingAndroidRepositories() } doReturn (Single.never<SearchRepositories>())
         }
-        RepoListViewModel(service, scheduler).uiState.subscribe(observer)
-        assertThat(observer.values().last(), instanceOf(RepoListUiModel.Loading::class.java))
+        TrendingViewModel(service, scheduler).uiState.subscribe(observer)
+        assertThat(observer.values().last(), instanceOf(TrendingUiModel.Loading::class.java))
     }
 
     @Test
@@ -30,8 +30,8 @@ class RepoListViewModelTest {
         val service = mock<GithubService> {
             on { getTrendingAndroidRepositories() } doReturn (Single.error<SearchRepositories>(Exception()))
         }
-        RepoListViewModel(service, scheduler).uiState.subscribe(observer)
-        assertThat(observer.values().last(), instanceOf(RepoListUiModel.Failure::class.java))
+        TrendingViewModel(service, scheduler).uiState.subscribe(observer)
+        assertThat(observer.values().last(), instanceOf(TrendingUiModel.Failure::class.java))
     }
 
     @Test
@@ -39,8 +39,8 @@ class RepoListViewModelTest {
         val service = mock<GithubService> {
             on { getTrendingAndroidRepositories() } doReturn (Single.just(SearchRepositories()))
         }
-        RepoListViewModel(service, scheduler).uiState.subscribe(observer)
-        assertThat(observer.values().last(), instanceOf(RepoListUiModel.Success::class.java))
+        TrendingViewModel(service, scheduler).uiState.subscribe(observer)
+        assertThat(observer.values().last(), instanceOf(TrendingUiModel.Success::class.java))
     }
 
     @Test
@@ -48,10 +48,10 @@ class RepoListViewModelTest {
         val service = mock<GithubService> {
             on { getTrendingAndroidRepositories() } doReturn (Single.just(SearchRepositories()))
         }
-        RepoListViewModel(service, scheduler).uiState.apply {
+        TrendingViewModel(service, scheduler).uiState.apply {
             subscribe()
             subscribe(observer)
         }
-        assertThat(observer.values().last(), instanceOf(RepoListUiModel.Success::class.java))
+        assertThat(observer.values().last(), instanceOf(TrendingUiModel.Success::class.java))
     }
 }

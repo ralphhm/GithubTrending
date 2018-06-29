@@ -12,7 +12,7 @@ import de.rhm.github.api.Repository
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_repo_list.view.*
 
-class RepoListView(viewModel: RepoListViewModel): LifecycleObserver {
+class TrendingView(viewModel: TrendingViewModel): LifecycleObserver {
 
     private val section = Section()
     private val disposable = CompositeDisposable()
@@ -33,10 +33,10 @@ class RepoListView(viewModel: RepoListViewModel): LifecycleObserver {
         }
     }
 
-    private fun updateUi(model: RepoListUiModel) = when (model) {
-        RepoListUiModel.Loading -> section.update(listOf(LoadingItem))
-        is RepoListUiModel.Success -> section.update(model.repoList.map { RepositoryItem(it) })
-        is RepoListUiModel.Failure -> section.update(listOf(ErrorItem(model.cause, model.retryAction)))
+    private fun updateUi(model: TrendingUiModel) = when (model) {
+        TrendingUiModel.Loading -> section.update(listOf(LoadingItem))
+        is TrendingUiModel.Success -> section.update(model.repoList.map { RepositoryItem(it) })
+        is TrendingUiModel.Failure -> section.update(listOf(ErrorItem(model.cause, model.retryAction)))
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)

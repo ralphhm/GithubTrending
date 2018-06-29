@@ -10,18 +10,18 @@ import kotlinx.android.synthetic.main.activity_repo_list.*
 import org.koin.android.architecture.ext.viewModel
 import org.koin.android.ext.android.inject
 
-class RepoListActivity : AppCompatActivity() {
+class TrendingActivity : AppCompatActivity() {
 
-    private val viewModel by viewModel<RepoListViewModel>()
+    private val viewModel by viewModel<TrendingViewModel>()
     private val selectedRepository by inject<SelectedRepo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repo_list)
         setSupportActionBar(toolbar)
-        RepoListView(viewModel).bind(content, this) { repo ->
+        TrendingView(viewModel).bind(content, this) { repo ->
             selectedRepository.value = repo
-            startActivity(Intent(this@RepoListActivity, RepoDetailsActivity::class.java))
+            startActivity(Intent(this@TrendingActivity, RepoDetailsActivity::class.java))
         }
     }
 }

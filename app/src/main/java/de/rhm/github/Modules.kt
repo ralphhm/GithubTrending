@@ -2,7 +2,7 @@ package de.rhm.github
 
 import de.rhm.github.api.GithubService
 import de.rhm.github.repo.SelectedRepo
-import de.rhm.github.trending.RepoListViewModel
+import de.rhm.github.trending.TrendingViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.architecture.ext.viewModel
@@ -23,7 +23,7 @@ val AppModule = applicationContext {
                 .build().create(GithubService::class.java)
     }
 
-    viewModel { RepoListViewModel(get(), get()) }
+    viewModel { TrendingViewModel(get(), get()) }
 
     bean { SelectedRepo() }
 
