@@ -10,7 +10,10 @@ The main screen which is the entry point of the app is a list repositories. It a
 * [Groupie](https://github.com/lisawray/groupie)
 * [Koin](https://insert-koin.io/) lightweight Kotlin dependency injection framework that allows simple ViewHolder injection and without code generation
 * [Android architecture ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
-### Questions
+### Build
+The App can be build by executing the task assembleRelease with the supplied Gradle wrapper "gradlew" 
+
+### Challenges
 #### How is trending Github repositories defined?
 Use [Github Trending Website](https://github.com/trending) as reference:
 Trending repositories seem to be defined as these repositories that gained stars in certain time interval:
@@ -55,3 +58,10 @@ The first question that arises is how to present the items on the screen next to
 
 The collection of repositories that needs to be visualized is a homogeneous data type thus the [list representation](https://material.io/guidelines/components/lists.html) is chosen.
 To visualize the contents of the repository tile/item a two line list with avatar is chosen.
+
+### Known issues
+* Scroll position is not preserved on orientation change
+* Repository details don't survive app kill when app is in background
+
+### Possible improvements
+* Cache repository entities in database using Room

@@ -29,7 +29,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.debug
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-fresco.pro',
                     'proguard-retrofit.pro'
