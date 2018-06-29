@@ -4,10 +4,10 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_error.*
 
-class ErrorItem(val message: String, private val retryAction: () -> Unit) : Item() {
+class ErrorItem(val cause: String?, private val retryAction: () -> Unit) : Item() {
 
     override fun bind(viewHolder: ViewHolder, position: Int) = with(viewHolder) {
-        info.text = message
+        info.text = itemView.resources.getString(R.string.error_loading_repos, cause)
         actionRetry.setOnClickListener { retryAction.invoke() }
     }
 
