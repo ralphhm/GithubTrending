@@ -2,6 +2,7 @@ package de.rhm.github
 
 import de.rhm.github.api.GithubService
 import de.rhm.github.repo.SelectedRepo
+import de.rhm.github.trending.RepoListViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.architecture.ext.viewModel

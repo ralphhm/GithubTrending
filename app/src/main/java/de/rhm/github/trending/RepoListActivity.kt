@@ -1,8 +1,9 @@
-package de.rhm.github
+package de.rhm.github.trending
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import de.rhm.github.R
 import de.rhm.github.repo.RepoDetailsActivity
 import de.rhm.github.repo.SelectedRepo
 import kotlinx.android.synthetic.main.activity_repo_list.*

@@ -1,4 +1,4 @@
-package de.rhm.github
+package de.rhm.github.trending
 
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock

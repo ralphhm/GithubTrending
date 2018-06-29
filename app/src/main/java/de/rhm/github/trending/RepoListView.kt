@@ -1,4 +1,4 @@
-package de.rhm.github
+package de.rhm.github.trending
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver

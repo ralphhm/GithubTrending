@@ -1,4 +1,4 @@
-package de.rhm.github
+package de.rhm.github.trending
 
 import de.rhm.github.api.Repository
 

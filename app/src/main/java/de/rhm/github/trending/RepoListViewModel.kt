@@ -1,4 +1,4 @@
-package de.rhm.github
+package de.rhm.github.trending
 
 import android.arch.lifecycle.ViewModel
 import de.rhm.github.api.GithubService
